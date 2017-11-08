@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SecondRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<%= link_to "User index", users_path %>
+  	<%= link_to "Users New", new_user_path %>
+  	<%# link_to "Edit User", edit_user_path %>
+  	<%# link_to "User Show", user_path(User.last) %>
+    <%= yield %>
+  </body>
+</html>
