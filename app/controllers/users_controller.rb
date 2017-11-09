@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+before_action :authenticate, only: [:edit, :update, :destroy]  
+
   # # shows all users
 # / get local host: 3000/users
   def index
@@ -18,7 +20,14 @@ class UsersController < ApplicationController
 # handles for submission and makes new user
   def create
     p params
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = 'account successfully created'
+      redirect_to @user
+    else
+      flash[:alert] = 'your account did not get created'
+      redirect_to new_user_path
+    end
     redirect_to @user
   end
 
