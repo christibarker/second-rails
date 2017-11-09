@@ -1,0 +1,13 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+
+
+<p>Create a Post</p>
+<%= form_with model: @post do |f| %>
+<%= f.label :Title %>
+	<%= f.text_field :title, placeholder: 'title' %>
+	<%= f.text_field :content, placeholder: 'content'%>
+			<input type="hidden" name="user_id" value="6">
+	<%= f.submit "Create Post" %>
+<% end %>

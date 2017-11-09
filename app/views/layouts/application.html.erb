@@ -10,9 +10,22 @@
 
   <body>
   	<%= link_to "User index", users_path %>
-  	<%= link_to "Users New", new_user_path %>
-  	<%# link_to "Edit User", edit_user_path %>
-  	<%# link_to "User Show", user_path(User.last) %>
+    <br
+
+    <% if user_signed_in_?  %>
+      <br>
+    	<%= link_to "Post index", posts_path %>
+      <br>
+      <%= link_to "Post New", new_post_path %>
+      <br>
+      <%= link_to "Log Out", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_session_path %>
+      <br>
+      <%= link_to "Create User", new_user_path %>
+    <% end %>
     <%= yield %>
+
+     
   </body>
 </html>
