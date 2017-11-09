@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @user.posts.create(post_params)
     redirect_to @post
   end
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @post.update(post_params)
     redirect_to @post
   end
